@@ -8,8 +8,9 @@ import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import java.util.Objects;
 
 @Entity(tableName = "course_table", foreignKeys = @ForeignKey(entity = Category.class, parentColumns = "id",childColumns = "category_id",onDelete = CASCADE))
  public class Course extends BaseObservable {
@@ -77,5 +78,18 @@ import androidx.room.PrimaryKey;
     public void setCategoryId(int categoryId) {
         CategoryId = categoryId;
         notifyPropertyChanged(BR.categoryId);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return courseId == course.courseId && CategoryId == course.CategoryId && courseName.equals(course.courseName) && unitPrice.equals(course.unitPrice);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseId, courseName, unitPrice, CategoryId);
     }
 }
