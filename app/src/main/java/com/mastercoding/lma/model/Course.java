@@ -85,7 +85,10 @@ import java.util.Objects;
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return courseId == course.courseId && CategoryId == course.CategoryId && courseName.equals(course.courseName) && unitPrice.equals(course.unitPrice);
+        return courseId == course.courseId
+                && CategoryId == course.CategoryId
+                && courseName.equals(course.courseName)
+                && unitPrice.equals(course.unitPrice);
     }
 
     @Override

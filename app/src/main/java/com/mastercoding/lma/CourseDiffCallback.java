@@ -12,6 +12,9 @@ public class CourseDiffCallback extends DiffUtil.Callback {
     ArrayList<Course>  oldCourseList;
     ArrayList<Course> newCourseList;
 
+    public CourseDiffCallback(ArrayList<Course> courses, ArrayList<Course> newCourses) {
+    }
+
 
     @Override
     public int getOldListSize() {
